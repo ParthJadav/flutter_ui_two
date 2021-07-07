@@ -4,12 +4,11 @@ import '../constants.dart';
 import '../size_config.dart';
 
 class DefaultButton extends StatelessWidget {
-  const DefaultButton({
-    Key? key, required this.text, required this.press,
-  }) : super(key: key);
+  const DefaultButton({Key? key, required this.text,required this.onPress})
+      : super(key: key);
 
   final String text;
-  final Function press;
+  final Function() onPress;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +24,7 @@ class DefaultButton extends StatelessWidget {
             textStyle: TextStyle(
               fontSize: getProportionateScreenWidth(18),
             )),
-        onPressed: () => press,
+        onPressed: onPress,
         child: Text(
           text,
           style: TextStyle(color: Colors.white),

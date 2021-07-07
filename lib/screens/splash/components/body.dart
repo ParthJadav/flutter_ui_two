@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_two/components/default_button.dart';
 import 'package:flutter_ui_two/constants.dart';
+import 'package:flutter_ui_two/screens/sing_in/sign_in_screen.dart';
 import 'package:flutter_ui_two/size_config.dart';
 import '../components/splash_content.dart';
 
@@ -28,6 +29,10 @@ class _BodyState extends State<Body> {
       "image": "assets/images/splash_3.png"
     },
   ];
+
+  void redirectToScreen(BuildContext context, String routeName) {
+    Navigator.pushNamed(context, routeName);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -70,12 +75,11 @@ class _BodyState extends State<Body> {
                       flex: 3,
                     ),
                     DefaultButton(
-                        text: currentPage == splashData.length - 1
-                            ? "Finish"
-                            : "Next",
-                        press: () {
-
-                        }),
+                      text: "Continue",
+                      onPress: () {
+                        redirectToScreen(context, SignInScreen.routeName);
+                      },
+                    ),
                     Spacer(),
                   ],
                 ),
